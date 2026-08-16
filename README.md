@@ -30,7 +30,7 @@ Construido con tecnologías modernas para ofrecer una experiencia rápida, respo
 | **React Icons** | Iconografía |
 
 ## 📂 Estructura del proyecto
-
+    
 ```
 Mi-portafolio/
 ├── src/

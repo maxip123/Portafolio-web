@@ -1,6 +1,22 @@
 import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
 import { FiExternalLink } from 'react-icons/fi';
 
+/* ─── Imports de imágenes: Lomas Fight ─── */
+import lomasImg1 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.04.2537 PM.jpeg';
+import lomasImg2 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.04.257 PM.jpeg';
+import lomasImg3 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.04.537 PM.jpeg';
+import lomasImg4 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.04.57 PM.jpeg';
+import lomasImg5 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.043.57 PM.jpeg';
+import lomasImg6 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.044.57 PM.jpeg';
+
+/* ─── Imports de imágenes: Unlimited Training ─── */
+import unlimitedImg1 from '../assets/Unlimited training/1769995998649.jpg';
+import unlimitedImg2 from '../assets/Unlimited training/1769995998674.jpg';
+import unlimitedImg3 from '../assets/Unlimited training/1769995998710.jpg';
+import unlimitedImg4 from '../assets/Unlimited training/1769995998726.jpg';
+import unlimitedImg5 from '../assets/Unlimited training/1769995998751.jpg';
+import unlimitedImg6 from '../assets/Unlimited training/1769995998858.jpg';
+
 /* ─── Datos de proyectos ─── */
 const projects = [
   {
@@ -9,27 +25,8 @@ const projects = [
     description:
       'Sistema de gestión integral con dashboards analíticos en tiempo real, control de cuotas, seguimiento de socios y reportes de ingresos. Incluye módulo de pagos con historial detallado.',
     stack: ['Node.js', 'Express', 'MySQL', 'Prisma', 'React', 'Chart.js'],
-    liveUrl: '#',
-    slides: [
-      {
-        bg: 'linear-gradient(135deg, #dbeafe 0%, #ede9fe 100%)',
-        label: 'Dashboard',
-        accent: '#2563EB',
-        emoji: '📊',
-      },
-      {
-        bg: 'linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%)',
-        label: 'Gestión de Socios',
-        accent: '#4F46E5',
-        emoji: '🥋',
-      },
-      {
-        bg: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-        label: 'Control de Pagos',
-        accent: '#16A34A',
-        emoji: '💳',
-      },
-    ],
+    liveUrl: 'https://www.lomasfight.com/',
+    slides: [lomasImg1, lomasImg2, lomasImg3, lomasImg4, lomasImg5, lomasImg6],
   },
   {
     id: '02',
@@ -38,89 +35,75 @@ const projects = [
       'Plataforma de gestión para torneos de fútbol sala. Administración de equipos, fixtures, tabla de posiciones y estadísticas de jugadores con panel de control completo.',
     stack: ['React', 'Node.js', 'PostgreSQL', 'TypeScript'],
     liveUrl: '#',
-    slides: [
-      {
-        bg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-        label: 'Fixture & Calendario',
-        accent: '#059669',
-        emoji: '⚽',
-      },
-      {
-        bg: 'linear-gradient(135deg, #f0fdf4 0%, #d1fae5 100%)',
-        label: 'Tabla de Posiciones',
-        accent: '#10B981',
-        emoji: '🏆',
-      },
-      {
-        bg: 'linear-gradient(135deg, #ecfdf5 0%, #a7f3d0 100%)',
-        label: 'Estadísticas',
-        accent: '#047857',
-        emoji: '📈',
-      },
-    ],
+    slides: null, // sin imágenes aún
+    placeholder: {
+      bg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
+      accent: '#059669',
+      emoji: '⚽',
+      label: 'Futsal AFA',
+    },
   },
   {
     id: '03',
     title: 'Unlimited Fitness',
     description:
-      'Sistema de administración para gimnasio: gestión de socios, control de acceso, planes de membresía, seguimiento de asistencia y reportes financieros.',
+      'Sitio web profesional para un entrenador personal. Presenta los servicios ofrecidos, planes de entrenamiento, testimonios de clientes y un formulario de contacto para consultas y turnos.',
     stack: ['React', 'Express', 'MySQL', 'Tailwind'],
-    liveUrl: '#',
-    slides: [
-      {
-        bg: 'linear-gradient(135deg, #fef3c7 0%, #fde68a 100%)',
-        label: 'Panel Principal',
-        accent: '#D97706',
-        emoji: '🏋️',
-      },
-      {
-        bg: 'linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%)',
-        label: 'Membresías',
-        accent: '#EA580C',
-        emoji: '🪪',
-      },
-      {
-        bg: 'linear-gradient(135deg, #fef9c3 0%, #fef08a 100%)',
-        label: 'Reportes',
-        accent: '#CA8A04',
-        emoji: '📋',
-      },
-    ],
+    liveUrl: 'https://unlimitedtraining.vercel.app/',
+    slides: [unlimitedImg1, unlimitedImg2, unlimitedImg3, unlimitedImg4, unlimitedImg5, unlimitedImg6],
   },
 ];
 
-/* ─── Componente de slide placeholder ─── */
-function SlideContent({ slide }) {
+/* ─── Slide con imagen real ─── */
+function ImageSlide({ src, alt }) {
+  return (
+    <div style={{ width: '100%', height: '220px', overflow: 'hidden', background: '#0f172a' }}>
+      <img
+        src={src}
+        alt={alt}
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          objectPosition: 'center top',
+          display: 'block',
+        }}
+      />
+    </div>
+  );
+}
+
+/* ─── Slide placeholder (cuando no hay imágenes) ─── */
+function PlaceholderSlide({ placeholder }) {
   return (
     <div
       style={{
         width: '100%',
         height: '220px',
-        background: slide.bg,
+        background: placeholder.bg,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
         gap: '10px',
-        position: 'relative',
         userSelect: 'none',
       }}
     >
-      <span style={{ fontSize: '2.8rem', lineHeight: 1 }}>{slide.emoji}</span>
+      <span style={{ fontSize: '2.8rem', lineHeight: 1 }}>{placeholder.emoji}</span>
       <span
         style={{
           fontSize: '0.72rem',
           fontWeight: 700,
           letterSpacing: '0.08em',
           textTransform: 'uppercase',
-          color: slide.accent,
+          color: placeholder.accent,
           background: 'rgba(255,255,255,0.75)',
           backdropFilter: 'blur(6px)',
           padding: '4px 12px',
           borderRadius: '100px',
         }}
       >
-        {slide.label}
+        {placeholder.label}
       </span>
     </div>
   );
@@ -130,7 +113,7 @@ function SlideContent({ slide }) {
 function ProjectCard({ project }) {
   return (
     <Card className="project-card border-0 h-100">
-      {/* Carousel de imágenes */}
+      {/* Carousel */}
       <div style={{ overflow: 'hidden', borderRadius: '16px 16px 0 0', position: 'relative' }}>
         <span
           className="project-number"
@@ -138,20 +121,25 @@ function ProjectCard({ project }) {
         >
           {project.id}
         </span>
-        <Carousel
-          interval={3500}
-          controls={true}
-          indicators={true}
-          fade={false}
-          pause="hover"
-          className="project-carousel"
-        >
-          {project.slides.map((slide, i) => (
-            <Carousel.Item key={i}>
-              <SlideContent slide={slide} />
-            </Carousel.Item>
-          ))}
-        </Carousel>
+
+        {project.slides ? (
+          <Carousel
+            interval={3000}
+            controls={true}
+            indicators={true}
+            fade={false}
+            pause="hover"
+            className="project-carousel"
+          >
+            {project.slides.map((src, i) => (
+              <Carousel.Item key={i}>
+                <ImageSlide src={src} alt={`${project.title} - captura ${i + 1}`} />
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <PlaceholderSlide placeholder={project.placeholder} />
+        )}
       </div>
 
       {/* Body */}
@@ -166,7 +154,7 @@ function ProjectCard({ project }) {
           ))}
         </div>
 
-        {/* Solo botón "Ver sitio" */}
+        {/* Botón Ver sitio */}
         <div className="project-actions">
           <Button
             href={project.liveUrl}
