@@ -1,12 +1,24 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FiGithub, FiLinkedin, FiArrowRight } from 'react-icons/fi';
+import profileImg from '../assets/c998cb71-0393-4104-87c4-b1377df5fcc2.jpg';
 
 export default function Hero() {
   return (
     <section id="home" className="hero-section">
       <Container>
-        <Row className="justify-content-start">
-          <Col lg={8} xl={7}>
+        <Row className="align-items-center">
+
+          <Col lg={5} xl={6} className="d-flex justify-content-center order-2 order-lg-1">
+            <div className="hero-photo-wrapper fade-in-up fade-in-up-delay-2">
+              <div className="hero-photo-glow" />
+              <div className="hero-photo-ring" />
+              <div className="hero-photo-bubble">
+                <img src={profileImg} alt="Foto de perfil" className="hero-photo-img" />
+              </div>
+            </div>
+          </Col>
+
+          <Col lg={7} xl={6} className="order-1 order-lg-2">
 
             <div className="hero-badge fade-in-up">
               <span className="hero-badge-dot" />
@@ -72,6 +84,7 @@ export default function Hero() {
             </div>
 
           </Col>
+
         </Row>
       </Container>
     </section>
