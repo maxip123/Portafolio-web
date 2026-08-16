@@ -46,7 +46,7 @@ export default function Hero() {
               </Button>
 
               <Button
-                href="https://github.com/"
+                href="https://github.com/maxip123"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hero-icon"
@@ -57,7 +57,7 @@ export default function Hero() {
               </Button>
 
               <Button
-                href="https://linkedin.com/"
+                href="https://www.linkedin.com/in/juan-maximiliano-prieto-212116352"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-hero-icon"
@@ -68,20 +68,6 @@ export default function Hero() {
               </Button>
             </div>
 
-            <div className="hero-stats fade-in-up fade-in-up-delay-4">
-              <div>
-                <div className="hero-stat-number">3+</div>
-                <div className="hero-stat-label">Proyectos reales</div>
-              </div>
-              <div>
-                <div className="hero-stat-number">5+</div>
-                <div className="hero-stat-label">Tecnologías</div>
-              </div>
-              <div>
-                <div className="hero-stat-number">100%</div>
-                <div className="hero-stat-label">Dedicación</div>
-              </div>
-            </div>
 
           </Col>
 
