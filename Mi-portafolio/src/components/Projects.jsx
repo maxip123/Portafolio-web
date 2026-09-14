@@ -1,5 +1,5 @@
-import { Container, Row, Col, Card, Button, Carousel } from 'react-bootstrap';
-import { FiExternalLink } from 'react-icons/fi';
+import { Container, Row, Col, Card, Carousel } from 'react-bootstrap';
+import { FiExternalLink, FiLayers } from 'react-icons/fi';
 
 /* ─── Imports de imágenes: Lomas Fight ─── */
 import lomasImg1 from '../assets/Lomas fight/WhatsApp Image 2026-08-16 at 5.04.2537 PM.jpeg';
@@ -17,94 +17,81 @@ import unlimitedImg4 from '../assets/Unlimited training/1769995998726.jpg';
 import unlimitedImg5 from '../assets/Unlimited training/1769995998751.jpg';
 import unlimitedImg6 from '../assets/Unlimited training/1769995998858.jpg';
 
+/* ─── Imports de imágenes: GPS Distribuciones ─── */
+import gpsImg1 from '../assets/GPS-Distribuciones/WhatsApp Image 2026-09-13 at 8.14.49 PM.jpeg';
+import gpsImg2 from '../assets/GPS-Distribuciones/WhatsApp Image 2026-09-13 at 8.14.53 PM.jpeg';
+import gpsImg3 from '../assets/GPS-Distribuciones/WhatsApp Image 2026-09-13 at 8.15.01 PM.jpeg';
+
 /* ─── Datos de proyectos ─── */
 const projects = [
   {
-    id: '01',
+    id: 'lomas-fight',
+    category: 'Sistema de Gestión Integral',
     title: 'Lomas Fight',
     description:
       'Sistema de gestión integral con dashboards analíticos en tiempo real, control de cuotas, seguimiento de socios y reportes de ingresos. Incluye módulo de pagos con historial detallado.',
-    stack: ['Node.js', 'Express', 'MySQL', 'Prisma', 'React', 'Chart.js'],
+    stack: ['Node.js', 'Express', 'PostgreSQL', 'Prisma', 'React'],
     liveUrl: 'https://www.lomasfight.com/',
     slides: [lomasImg1, lomasImg2, lomasImg3, lomasImg4, lomasImg5, lomasImg6],
   },
   {
-    id: '02',
-    title: 'Futsal AFA',
+    id: 'argentinas-del-norte',
+    category: 'Gestión Deportiva & Landing',
+    title: 'Argentinas del Norte',
     description:
-      'Plataforma de gestión para torneos de fútbol sala. Administración de equipos, fixtures, tabla de posiciones y estadísticas de jugadores con panel de control completo.',
-    stack: ['React', 'Node.js', 'PostgreSQL', 'TypeScript'],
-    liveUrl: '#',
-    slides: null, // sin imágenes aún
-    placeholder: {
-      bg: 'linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%)',
-      accent: '#059669',
-      emoji: '⚽',
-      label: 'Futsal AFA',
-    },
+      'Plataforma integral para la gestión de partidos y torneos de Futsal AFA de Argentinos del Norte. Incluye administración de finanzas del club y una landing integrada para difusión de información.',
+    stack: ['React', 'Node.js', 'MySQL', 'TypeScript'],
+    liveUrl: null, // Proyecto en desarrollo
+    slides: null,
   },
   {
-    id: '03',
+    id: 'unlimited-fitness',
+    category: 'Web & Entrenamiento',
     title: 'Unlimited Fitness',
     description:
       'Sitio web profesional para un entrenador personal. Presenta los servicios ofrecidos, planes de entrenamiento, testimonios de clientes y un formulario de contacto para consultas y turnos.',
-    stack: ['React', 'Express', 'MySQL', 'Tailwind'],
+    stack: ['React', 'Express', 'MongoDB', 'Tailwind'],
     liveUrl: 'https://unlimitedtraining.vercel.app/',
     slides: [unlimitedImg1, unlimitedImg2, unlimitedImg3, unlimitedImg4, unlimitedImg5, unlimitedImg6],
+  },
+  {
+    id: 'gps-distribuciones',
+    category: 'Catálogo Virtual Comercial',
+    title: 'GPS Distribuciones',
+    description:
+      'Catálogo virtual interactivo diseñado para la exploración y visualización ágil de productos. Cuenta con una interfaz moderna y responsiva, navegación intuitiva y estilos personalizados.',
+    stack: ['React', 'Vite', 'Tailwind', 'CSS'],
+    liveUrl: 'https://www.catalogo-gpsdistribuciones.com/',
+    slides: [gpsImg1, gpsImg2, gpsImg3],
   },
 ];
 
 /* ─── Slide con imagen real ─── */
 function ImageSlide({ src, alt }) {
   return (
-    <div style={{ width: '100%', height: '220px', overflow: 'hidden', background: '#0f172a' }}>
+    <div className="project-slide-container">
       <img
         src={src}
         alt={alt}
-        style={{
-          width: '100%',
-          height: '100%',
-          objectFit: 'cover',
-          objectPosition: 'center top',
-          display: 'block',
-        }}
+        className="project-slide-img"
+        loading="lazy"
       />
     </div>
   );
 }
 
-/* ─── Slide placeholder (cuando no hay imágenes) ─── */
-function PlaceholderSlide({ placeholder }) {
+/* ─── Slide architectural mockup para proyectos en desarrollo ─── */
+function ArchitecturalPlaceholder() {
   return (
-    <div
-      style={{
-        width: '100%',
-        height: '220px',
-        background: placeholder.bg,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        gap: '10px',
-        userSelect: 'none',
-      }}
-    >
-      <span style={{ fontSize: '2.8rem', lineHeight: 1 }}>{placeholder.emoji}</span>
-      <span
-        style={{
-          fontSize: '0.72rem',
-          fontWeight: 700,
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          color: placeholder.accent,
-          background: 'rgba(255,255,255,0.75)',
-          backdropFilter: 'blur(6px)',
-          padding: '4px 12px',
-          borderRadius: '100px',
-        }}
-      >
-        {placeholder.label}
-      </span>
+    <div className="project-blueprint-slide">
+      <div className="blueprint-grid-overlay" />
+      <div className="blueprint-content">
+        <div className="blueprint-icon-ring">
+          <FiLayers size={24} />
+        </div>
+        <div className="blueprint-title">Argentinas del Norte — Futsal AFA</div>
+        <div className="blueprint-badge">En fase de desarrollo activo</div>
+      </div>
     </div>
   );
 }
@@ -112,19 +99,16 @@ function PlaceholderSlide({ placeholder }) {
 /* ─── Tarjeta de proyecto ─── */
 function ProjectCard({ project }) {
   return (
-    <Card className="project-card border-0 h-100">
-      {/* Carousel */}
-      <div style={{ overflow: 'hidden', borderRadius: '16px 16px 0 0', position: 'relative' }}>
-        <span
-          className="project-number"
-          style={{ position: 'absolute', top: 12, left: 12, zIndex: 10 }}
-        >
-          {project.id}
-        </span>
+    <Card className="project-card h-100">
+      {/* Media Header */}
+      <div className="project-media-wrapper">
+        <div className="project-category-tag">
+          {project.category}
+        </div>
 
         {project.slides ? (
           <Carousel
-            interval={3000}
+            interval={3500}
             controls={true}
             indicators={true}
             fade={false}
@@ -138,17 +122,20 @@ function ProjectCard({ project }) {
             ))}
           </Carousel>
         ) : (
-          <PlaceholderSlide placeholder={project.placeholder} />
+          <ArchitecturalPlaceholder />
         )}
       </div>
 
       {/* Body */}
       <Card.Body className="project-body">
-        <Card.Title className="project-title">{project.title}</Card.Title>
+        <div className="project-header">
+          <Card.Title className="project-title">{project.title}</Card.Title>
+        </div>
+
         <Card.Text className="project-desc">{project.description}</Card.Text>
 
         {/* Tech Stack Pills */}
-        <div>
+        <div className="project-stack-wrap">
           {project.stack.map((tech) => (
             <span key={tech} className="tech-pill">{tech}</span>
           ))}
@@ -156,15 +143,22 @@ function ProjectCard({ project }) {
 
         {/* Botón Ver sitio */}
         <div className="project-actions">
-          <Button
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-project-live w-100"
-            as="a"
-          >
-            <FiExternalLink size={13} /> Ver sitio en vivo
-          </Button>
+          {project.liveUrl ? (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-project-live"
+            >
+              <span>Ver sitio en vivo</span>
+              <FiExternalLink size={14} />
+            </a>
+          ) : (
+            <div className="btn-project-pending">
+              <span className="status-dot-pending" />
+              <span>Despliegue próximo</span>
+            </div>
+          )}
         </div>
       </Card.Body>
     </Card>
@@ -176,20 +170,17 @@ export default function Projects() {
   return (
     <section id="projects" className="projects-section">
       <Container>
-        <Row className="mb-5">
-          <Col lg={7}>
-            <span className="section-label">Trabajo</span>
-            <h2 className="section-title">Proyectos Destacados</h2>
-            <p className="section-subtitle">
-              Aplicaciones web completas desarrolladas desde el diseño de base de datos
-              hasta la interfaz de usuario final.
-            </p>
-          </Col>
-        </Row>
+        <div className="section-header-clean mb-5">
+          <h2 className="section-title">Proyectos Seleccionados</h2>
+          <p className="section-subtitle">
+            Soluciones web desarrolladas desde la modelización del negocio y datos
+            hasta interfaces de usuario interactivas de alto rendimiento.
+          </p>
+        </div>
 
         <Row className="g-4">
           {projects.map((project) => (
-            <Col key={project.id} md={6} lg={4}>
+            <Col key={project.id} md={6} lg={6}>
               <ProjectCard project={project} />
             </Col>
           ))}

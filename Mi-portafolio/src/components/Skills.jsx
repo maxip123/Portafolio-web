@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import {
   SiNodedotjs,
   SiMysql,
@@ -17,137 +17,114 @@ import {
   SiFigma,
   SiVercel,
   SiSupabase,
-  SiObsidian,
+  SiTailwindcss,
+  SiMongodb,
 } from 'react-icons/si';
 import {
   FiServer,
   FiLayout,
   FiTool,
   FiDatabase,
-  FiCode,
   FiZap,
   FiCloud,
-  FiCpu,
-  FiEdit3,
   FiRadio,
   FiGrid,
   FiRefreshCw,
 } from 'react-icons/fi';
 
 /* ─── Grupos de habilidades ─── */
-const backendSkills = [
-  { name: 'Node.js', icon: <SiNodedotjs /> },
-  { name: 'Express', icon: <FiZap /> },
-  { name: 'Python', icon: <SiPython /> },
-  { name: 'FastAPI', icon: <SiFastapi /> },
-  { name: 'MySQL', icon: <SiMysql /> },
-  { name: 'PostgreSQL', icon: <SiPostgresql /> },
-  { name: 'Prisma', icon: <FiDatabase /> },
-  { name: 'Supabase', icon: <SiSupabase /> },
-  { name: 'WebSocket', icon: <FiRadio /> },
-  { name: 'Microservicios', icon: <FiGrid /> },
+const skillGroups = [
+  {
+    category: 'Backend & APIs',
+    desc: 'Desarrollo de servicios robustos, lógica de negocio y comunicación en tiempo real.',
+    icon: <FiServer />,
+    skills: [
+      { name: 'Node.js', icon: <SiNodedotjs /> },
+      { name: 'Express', icon: <FiZap /> },
+      { name: 'Python', icon: <SiPython /> },
+      { name: 'FastAPI', icon: <SiFastapi /> },
+      { name: 'WebSocket', icon: <FiRadio /> },
+      { name: 'Microservicios', icon: <FiGrid /> },
+    ],
+  },
+  {
+    category: 'Bases de Datos & Persistencia',
+    desc: 'Diseño relacional, consultas optimizadas, ORM y gestión de esquemas.',
+    icon: <FiDatabase />,
+    skills: [
+      { name: 'MySQL', icon: <SiMysql /> },
+      { name: 'PostgreSQL', icon: <SiPostgresql /> },
+      { name: 'MongoDB', icon: <SiMongodb /> },
+      { name: 'Prisma ORM', icon: <FiDatabase /> },
+      { name: 'Supabase', icon: <SiSupabase /> },
+    ],
+  },
+  {
+    category: 'Frontend & Interfaces',
+    desc: 'Aplicaciones de una sola página, renderizado reactivo y diseño responsivo.',
+    icon: <FiLayout />,
+    skills: [
+      { name: 'React', icon: <SiReact /> },
+      { name: 'TypeScript', icon: <SiTypescript /> },
+      { name: 'JavaScript (ES6+)', icon: <SiJavascript /> },
+      { name: 'Vite', icon: <SiVite /> },
+      { name: 'Tailwind CSS', icon: <SiTailwindcss /> },
+      { name: 'HTML5 / CSS3', icon: <SiHtml5 /> },
+    ],
+  },
+  {
+    category: 'Infraestructura & Herramientas',
+    desc: 'Control de versiones, contenedores, automatización y despliegue continuo.',
+    icon: <FiTool />,
+    skills: [
+      { name: 'Docker', icon: <SiDocker /> },
+      { name: 'Vercel', icon: <SiVercel /> },
+      { name: 'Git', icon: <SiGit /> },
+      { name: 'GitHub', icon: <SiGithub /> },
+      { name: 'VPS / Linux', icon: <FiCloud /> },
+      { name: 'Figma', icon: <SiFigma /> },
+      { name: 'Trello', icon: <SiTrello /> },
+      { name: 'Scrum / Ágil', icon: <FiRefreshCw /> },
+    ],
+  },
 ];
 
-const frontendSkills = [
-  { name: 'React', icon: <SiReact /> },
-  { name: 'JavaScript', icon: <SiJavascript /> },
-  { name: 'TypeScript', icon: <SiTypescript /> },
-  { name: 'HTML5', icon: <SiHtml5 /> },
-  { name: 'CSS3', icon: <FiCode /> },
-  { name: 'Vite', icon: <SiVite /> },
-];
-
-const cloudSkills = [
-  { name: 'Vercel', icon: <SiVercel /> },
-  { name: 'AWS', icon: <FiCloud /> },
-  { name: 'Supabase', icon: <SiSupabase /> },
-  { name: 'VPS', icon: <FiServer /> },
-  { name: 'Docker', icon: <SiDocker /> },
-];
-
-const toolsSkills = [
-  { name: 'Git', icon: <SiGit /> },
-  { name: 'GitHub', icon: <SiGithub /> },
-  { name: 'Figma', icon: <SiFigma /> },
-  { name: 'Trello', icon: <SiTrello /> },
-  { name: 'Obsidian', icon: <SiObsidian /> },
-  { name: 'Stitch', icon: <FiEdit3 /> },
-  { name: 'Scrum', icon: <FiRefreshCw /> },
-];
-
-/* ─── Sub-componente de grupo ─── */
-function BentoCard({ spanClass, iconClass, icon, title, skills }) {
-  return (
-    <div className={`bento-card ${spanClass}`}>
-      <div className="bento-category">
-        <div className={`bento-category-icon ${iconClass}`}>{icon}</div>
-        <span className="bento-category-title">{title}</span>
-      </div>
-      <div>
-        {skills.map((s) => (
-          <span key={s.name} className="skill-tag">
-            {s.icon} {s.name}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* ─── Sección principal ─── */
 export default function Skills() {
   return (
     <section id="skills" className="skills-section">
       <Container>
-        <div className="mb-5">
-          <span className="section-label">Expertise</span>
+        <div className="section-header-clean mb-5">
           <h2 className="section-title">Habilidades Técnicas</h2>
           <p className="section-subtitle">
-            Stack completo para construir productos web robustos — desde la base de datos
-            hasta el deploy en producción.
+            Conjunto de tecnologías y herramientas aplicadas en entornos de desarrollo reales
+            y proyectos en producción.
           </p>
         </div>
 
-        {/* Bento Grid */}
-        <div className="bento-grid">
+        <Row className="g-4">
+          {skillGroups.map((group, idx) => (
+            <Col key={idx} md={6} lg={6}>
+              <div className="skill-group-panel h-100">
+                <div className="skill-group-head">
+                  <div className="skill-group-icon">{group.icon}</div>
+                  <div>
+                    <h3 className="skill-group-name">{group.category}</h3>
+                    <p className="skill-group-desc">{group.desc}</p>
+                  </div>
+                </div>
 
-          {/* Backend & DB — 8 cols */}
-          <BentoCard
-            spanClass="col-span-8"
-            iconClass="backend"
-            icon={<FiServer />}
-            title="Backend & Bases de Datos"
-            skills={backendSkills}
-          />
-
-          {/* Cloud & Deploy — 4 cols */}
-          <BentoCard
-            spanClass="col-span-4"
-            iconClass="cloud"
-            icon={<FiCloud />}
-            title="Cloud & Deploy"
-            skills={cloudSkills}
-          />
-
-          {/* Frontend — 6 cols */}
-          <BentoCard
-            spanClass="col-span-6"
-            iconClass="frontend"
-            icon={<FiLayout />}
-            title="Frontend"
-            skills={frontendSkills}
-          />
-
-          {/* Herramientas — 6 cols */}
-          <BentoCard
-            spanClass="col-span-6"
-            iconClass="tools"
-            icon={<FiTool />}
-            title="Herramientas & Diseño"
-            skills={toolsSkills}
-          />
-
-        </div>
+                <div className="skill-chips-wrap">
+                  {group.skills.map((s) => (
+                    <div key={s.name} className="skill-chip">
+                      <span className="skill-chip-icon">{s.icon}</span>
+                      <span className="skill-chip-name">{s.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
       </Container>
     </section>
   );

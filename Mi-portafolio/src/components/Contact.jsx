@@ -35,10 +35,10 @@ export default function Contact() {
 
                 <div className="d-flex flex-column gap-3">
                   <a
-                    href="mailto:juanm@email.com"
+                    href="mailto:juanmaximilianoprieto19@gmail.com"
                     className="footer-link ps-0"
                   >
-                    <FiMail /> juanm@email.com
+                    <FiMail /> juanmaximilianoprieto19@gmail.com
                   </a>
                   <a
                     href="https://github.com/"

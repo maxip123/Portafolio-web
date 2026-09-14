@@ -29,12 +29,13 @@ export default function PortfolioNavbar() {
             <Nav.Link href="#about" className="nav-link-custom">Sobre mí</Nav.Link>
             <Nav.Link href="#projects" className="nav-link-custom">Proyectos</Nav.Link>
             <Nav.Link href="#skills" className="nav-link-custom">Habilidades</Nav.Link>
+            <Nav.Link href="#contact" className="nav-link-custom">Contacto</Nav.Link>
           </Nav>
 
           {/* Íconos sociales */}
           <div className="navbar-social-icons">
             <a
-              href="mailto:juanmaximilianoprieto@hotmail.com"
+              href="mailto:juanmaximilianoprieto19@gmail.com"
               className="navbar-social-link"
               title="Email"
               aria-label="Email"
